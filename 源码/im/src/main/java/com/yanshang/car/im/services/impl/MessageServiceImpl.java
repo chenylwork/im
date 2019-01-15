@@ -101,4 +101,13 @@ public class MessageServiceImpl implements MessageServices {
         }
         return NetMessage.failNetMessage("","没有未读的消息");
     }
+    @Override
+    public NetMessage getHistoryMessage(int roomid, String start, String end) {
+        List<Message> historyMessage = messageRepository.getHistoryMessage(roomid, start, end);
+        if (historyMessage != null && !historyMessage.isEmpty()) {
+            return NetMessage.successNetMessage("",historyMessage);
+        } else {
+            return NetMessage.failNetMessage("","没有您需要的聊天信息！！");
+        }
+    }
 }

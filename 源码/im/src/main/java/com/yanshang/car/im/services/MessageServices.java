@@ -19,6 +19,15 @@ public interface MessageServices {
      */
     NetMessage getUnreadMessage(String username);
 
+    /**
+     * 获取历史消息
+     * @param roomid 聊天室编号
+     * @param start 开始时间
+     * @param end 结束时间
+     * @return
+     */
+    NetMessage getHistoryMessage(int roomid,String start,String end);
+
 
 
 
